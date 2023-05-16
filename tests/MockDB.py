@@ -60,12 +60,12 @@ class MockBD(TestCase):
         query_insert_aluno = """INSERT INTO aluno (id,nome) VALUES
                                     (1, 'Carla'),
                                     (2, 'Lara'),
-                                    (3, 'Liryel','TAD0000'),
-                                    (4, 'Danilo','TAD2222'),
+                                    (3, 'Liryel'),
+                                    (4, 'Danilo'),
                                     (5, 'Fernanda'),
                                     (6, 'Julia')"""
         query_insert_media_aluno_turma = """INSERT INTO media_aluno_turma (id,id_turma,id_aluno,nota1,nota2,nota3,media) VALUES
-                                    (1,1,1,9,9,9.,9),
+                                    (1,1,1,9,9,9,9),
                                     (2,1,2,8.5,9,10,9.1),
                                     (3,1,3,10,10,10,10),
                                     (4,1,4,7,7,7,7 ),
