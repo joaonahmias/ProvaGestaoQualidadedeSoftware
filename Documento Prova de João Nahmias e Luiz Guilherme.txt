@@ -1,0 +1,51 @@
+Arquivo documento
+prova de Luiz Guilherme e João Nahmias
+
+##### TESTES UNITÁRIOS: ####
+
+##1
+Primeiro teste: Mandamos uma lista onde duas pessoas tem  a maior nota e a função devolve o nome dessas duas pessoas. 
+Segundo teste: Uma pessoa apenas tem a maior nota e a função devolve o nome dessa pessoa.
+
+
+##2
+
+É mandado uma lista com as disciplinas do curso e uma outra lista com as disciplinas que o aluno ja pagou, onde pode ter passado ou não.
+Primeiro teste: Ele passou em 3 disciplinas e é esperado uma lista com a diferença dessas que ele já passou com todas as disciplinas do curso.
+Segundo teste: Ele já pagou todas as matérias do curso e é esperado uma lista vazia como resultado.
+
+
+
+##3
+Primeiro teste: É passado 3 professores diferentes e cada um possui N turmas. Onde é esperado como retorno uma lista que contenha o Id do professor 
+juntamente com a soma das médias das turmas dele dividido pela quantidade de turmas.
+
+Segundo Teste: É passado uma lista vazia e se espera como resultado uma lista vazia.
+
+
+#### TESTES COM BANCO DE DADOS: ####
+
+##1 
+Primeiro teste: É passado a turma TAD0203 onde a maior média é 10 (No banco dois alunos possuem essa média), e se espera um retorno 10.
+Segundo teste: Passamos uma turma onde não tem nenhum aluno cadastrado e se espera como retorno NONE
+
+##2
+Primeiro Teste: É passado como parâmetro o Aluno carla que possui 3 disciplinas no banco e o resultado esperado é o nome da disciplina juntamente com sua média.
+Segundo teste: É passado como parâmetro um aluno Giovana que não está no banco de dados. O resultado esperado é uma lista vazia.
+Terceiro teste: É passado como parâmetro o aluno Julia, esse aluno não está matriculado em nenhuma turma. O esperado é uma lista vazia.
+
+##3
+Primeiro teste: É passado como parâmetro um aluno Carla, e é esperado a quantidade de disciplinas que ela já cursou, no caso, 3. 
+Segundo teste: É passado como parâmetro um aluno Giovana que não está inserido no banco de dados, e se espera como resultado 0. 
+Terceiro teste: É passado como parâmetro a aluna julia e o resultado esperado é 0.
+
+
+
+
+
+
+
+
+
+
+

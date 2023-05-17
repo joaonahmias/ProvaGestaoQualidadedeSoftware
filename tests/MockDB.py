@@ -19,7 +19,7 @@ class MockBD(TestCase):
         query_create_turma = """CREATE TABLE turma (
                                   id int NOT NULL PRIMARY KEY ,
                                   nome text NOT NULL,
-                                  codigo int NOT NULL
+                                  codigo text NOT NULL
                                 )"""
         query_create_aluno = """CREATE TABLE aluno  (
                                   id int NOT NULL PRIMARY KEY ,
@@ -66,7 +66,7 @@ class MockBD(TestCase):
                                     (6, 'Julia')"""
         query_insert_media_aluno_turma = """INSERT INTO media_aluno_turma (id,id_turma,id_aluno,nota1,nota2,nota3,media) VALUES
                                     (1,1,1,9,9,9,9),
-                                    (2,1,2,8.5,9,10,9.1),
+                                    (2,1,2,8.5,9,10,10),
                                     (3,1,3,10,10,10,10),
                                     (4,1,4,7,7,7,7 ),
                                     (5,1,5,6,6,6,6),

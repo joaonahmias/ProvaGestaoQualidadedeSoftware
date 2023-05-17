@@ -1,39 +1,31 @@
-from MockDB import MockBD
-import sys
-sys.path.insert(0, '..')
-from ConexaoDB import *
-from queries_turma import *
+from turma import *
+import unittest
 
-class Test_turma(MockBD):
+class Test_turma(unittest.TestCase):
+    def test_alunos_maior_nota(self):
+        lista = [('Carla', 9.7),('Danilo', 6.7), ('Daniel', 3.4), ('Alice', 9.7), ('Flávio',5.7), ('Silvia', 4.4)]
+        r_esperado = [('Carla'),('Alice')]
+        lista2 = [('Carla', 9.0),('Danilo', 6.7), ('Daniel', 3.4), ('Alice', 10), ('Flávio',5.7), ('Silvia', 4.4)]
+        r_esperado2 = [('Alice')]
+        self.assertEqual(alunos_maior_nota(lista),r_esperado)
+        self.assertEqual(alunos_maior_nota(lista2),r_esperado2)
+    
+    def test_disciplinas_a_pagar(self):
+        lista_disciplinas = [('TAD0055'), ('TAD0010'),('TAD0002'), ('TAD0001'), ('TAD1002'), ('TAD0100'), ('TAD0027'), ('TAD0105'),('TAD0202'), ('TAD2030')]
+        lista_aluno = [('TAD0055',9.7), ('TAD0010', 6.7), ('TAD0105', 3.4), ('TAD0105', 4.4),('TAD0105', 7.1), ('TAD0027', 9.7), ('TAD0202', 5.7), ('TAD0001',4.4)]
+        r_esperado = [('TAD0010'),('TAD0002'),('TAD0001'),('TAD1002'),('TAD0100'),('TAD0202'),('TAD2030')]
+        lista_aluno2 = [('TAD0055',7), ('TAD0010',7),('TAD0002',7), ('TAD0001',7), ('TAD1002',7), ('TAD0100',7), ('TAD0027',7), ('TAD0105',7),('TAD0202',7), ('TAD2030',7)]
+        r_esperado2 = []
+        self.assertEqual(disciplinas_a_pagar(lista_aluno,lista_disciplinas),r_esperado)
+        self.assertEqual(disciplinas_a_pagar(lista_aluno2,lista_disciplinas),r_esperado2)
+                           
+    def test_medias_turmas_professores(self):
+        lista = [('TAD0055', 1, 9.7), ('TAD0010', 2, 6.7), ('TAD0105', 3, 3.4), ('TAD0105', 1, 4.4), ('TAD0105', 2, 7.1), ('TAD0027', 2, 9.7), ('TAD0202', 3, 5.7), ('TAD0001', 3, 4.4)]
+        r_esperado =  [(1, 7.05), (2, 7.83), (3,4.5)]
+        lista2 = []
+        r_esperado2 =  []
+        self.assertEqual(medias_turmas_professores(lista),r_esperado)
+        self.assertEqual(medias_turmas_professores(lista2),r_esperado2)
+                           
 
-    def test_medias_acima_de_9(self):
-        r_esperado = [('Carla',), ('Lara',), ('Liryel',)]
-        self.assertEqual(medias_acima_de_9(self.mock_db_config.get('bd')),r_esperado)
-    
-    def test_turmas_de_um_aluno(self):
-        aluna = 'Carla'
-        r_esperado = [('POO',),('Banco de Dados',),('Algoritmos',)]
-        self.assertEqual(turmas_de_um_aluno(self.mock_db_config.get('bd'),aluna),r_esperado)
-        aluna2 = 'Giovana'
-        r_esperado2 = []
-        self.assertEqual(turmas_de_um_aluno(self.mock_db_config.get('bd'),aluna2),r_esperado2)
-        aluna3 = 'Julia'
-        r_esperado3 = []
-        self.assertEqual(turmas_de_um_aluno(self.mock_db_config.get('bd'),aluna3),r_esperado3)
-        
-        
-    def test_alunos_de_uma_turma(self):
-        turma = 'TAD0203'
-        r_esperado = [('Carla',),('Lara',),('Liryel',),('Danilo',),('Fernanda',)]
-        self.assertEqual(alunos_de_uma_turma(self.mock_db_config.get('bd'),turma),r_esperado)
-        turma2 = 'Racicionio Logico'
-        r_esperado2 = []
-        self.assertEqual(alunos_de_uma_turma(self.mock_db_config.get('bd'),turma2),r_esperado2)
-        turma3 = 'Autoria Web'
-        r_esperado3 = []
-        self.assertEqual(alunos_de_uma_turma(self.mock_db_config.get('bd'),turma3),r_esperado3)
-    
-    def test_quantidade_de_alunos(self):
-        turma = 'POO'
-        r_esperado = [(5,)]
-        self.assertEqual(quantidade_de_alunos(self.mock_db_config.get('bd'),turma),r_esperado)
+
